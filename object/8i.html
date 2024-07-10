@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>head_tail</title>
+  </head>
+  <body>
+    <button onclick="computer();guess('head');print();">heads</button>
+    <button onclick="computer();guess('tail');print();">tails</button>
+    <script>
+      let result = "";
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+      function computer() {
+        let val = Math.floor(Math.random() * 2) + 1;
+        if (val === 1) computermove = "tail";
+        else computermove = "head";
+      }
+      function guess(playermove) {
+        if (playermove === computermove) result = "win";
+        else result = "lose";
+      }
+      function print() {
+        if (result === "win") score.wins++;
+        else score.losses++;
+        console.log(`Wins:${score.wins},losses:${score.losses}`);
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>
