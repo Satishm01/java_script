@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+
+    <button onclick="updateCartQuantity('display');">Show Quantity</button>
+    <button onclick="updateCartQuantity(1);">Add to Cart</button>
+    <button onclick="updateCartQuantity(2);">+2</button>
+    <button onclick="updateCartQuantity(3);">+3</button>
+    <button onclick="updateCartQuantity('Reset');">Reset Cart</button>
+    <button onclick="updateCartQuantity(-1);">Delete</button>
+
+    <script>
+      let cartQuantity = 0;
+
+      function updateCartQuantity(num) {
+        if (cartQuantity == 0 && num == -1) {
+          alert("Cart is empty");
+          return;
+        } else if (cartQuantity == 9 && num > 0) {
+          alert("cart is full");
+          return;
+        }
+        if (num === "Reset") {
+          cartQuantity = 0;
+        } else if (num === "display") {
+          console.log(`Cart Quantity: ${cartQuantity}`);
+          return;
+        } else {
+          cartQuantity += num;
+        }
+
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      }
+    </script>
+  </body>
+</html>

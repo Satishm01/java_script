@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Temperature</title>
+  </head>
+  <body>
+    <script>
+      function convertLength(num, from, to) {
+        let val = 0;
+        if (from == "miles") {
+          if (to == "km") {
+            val = 1600 * num;
+            val /= 1000;
+            console.log(`${val} km`);
+          } else if (to == "miles") {
+            console.log(`${num} miles`);
+          } else if (to == "ft") {
+            val = num * 5280;
+            console.log(`${val} ft`);
+          } else {
+            console.log(`Invalid unit:${to}`);
+          }
+        } else if (from == "km") {
+          if (to == "km") {
+            console.log(`${num} km`);
+          } else if (to == "miles") {
+            val = num / 1600;
+            val *= 1000;
+            console.log(`${val} miles`);
+          } else if (to == "ft") {
+            val = num * 3281;
+            console.log(`${val} ft`);
+          } else {
+            console.log(`Invalid unit:${to}`);
+          }
+        } else {
+          console.log(`Invalid unit:${to}`);
+        }
+      }
+
+      convertLength(50, "miles", "km");
+      convertLength(32, "km", "miles");
+      convertLength(50, "km", "km");
+      convertLength(5, "miles", "km");
+      convertLength(5, "miles", "ft");
+      convertLength(5, "km", "ft");
+      convertLength(5, "lbs", "lbs");
+    </script>
+  </body>
+</html>

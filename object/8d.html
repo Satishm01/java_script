@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object</title>
+  </head>
+  <body>
+    <script>
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) return product1;
+        else product2;
+      }
+      function isSameProduct(p1, p2) {
+        if (p1.name === p2.name && p1.price === p2.price) return true;
+        return false;
+      }
+      const p1 = {
+        name: "p1",
+        price: 123,
+      };
+      const p2 = {
+        name: "p2",
+        price: 456,
+      };
+      const p3 = {
+        name: "p2",
+        price: 456,
+      };
+      console.log(comparePrice(p1, p2));
+      console.log(isSameProduct(p1, p2));
+      console.log(isSameProduct(p2, p3));
+      console.log("HeLLoWorld".repeat(2));
+    </script>
+  </body>
+</html>

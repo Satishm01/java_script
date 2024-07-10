@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>rock_paper</title>
+  </head>
+  <body>
+    <h3>Rock_Paper_Scissor</h3>
+    <br />
+
+    <button
+      onclick="
+    plyer_move(1);
+  
+    "
+    >
+      Rock
+    </button>
+    <button
+      onclick="plyer_move(2);
+    "
+    >
+      paper
+    </button>
+    <button
+      onclick="
+   plyer_move(3);
+    "
+    >
+      Scissor
+    </button>
+    <br />
+    <br />
+    <br />
+    <button
+      onclick="
+        num1 = 0,
+        win = 0,
+        lose = 0,
+        tie = 0;
+        console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+    "
+    >
+      Reset Score
+    </button>
+    <script>
+      let num1 = 0,
+        win = 0,
+        lose = 0,
+        tie = 0;
+
+      function plyer_move(move) {
+        num1 = Math.floor(Math.random() * 3) + 1;
+        if (num1 == 2 && move == 3) {
+          win++;
+          alert("you picked Scissor. Computer picked paper.You Win");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 3 && move == 3) {
+          tie++;
+          alert("you picked Scissor. Computer picked Scissors.Hence tie");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 1 && move == 3) {
+          lose++;
+
+          alert("you picked Scissor. Computer picked Rock.You lose");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 2 && move == 2) {
+          tie++;
+          alert("you picked Paper. Computer picked Paper.Hence tie");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 3 && move == 2) {
+          lose++;
+          alert("you picked Paper. Computer picked Scissors.Hence lose");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 1 && move == 2) {
+          win++;
+
+          alert("you picked Paper. Computer picked Rock.You win");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 2 && move == 1) {
+          lose++;
+          alert("you picked Rock. Computer picked paper.You lose");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 3 && move == 1) {
+          win++;
+          alert("you picked Rock. Computer picked Scissors.Hence Win");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        } else if (num1 == 1 && move == 1) {
+          tie++;
+
+          alert("you picked Scissor. Computer picked Scissor.Hence tie");
+          console.log(`Wins:${win},  Losses:${lose}, Ties:${tie}`);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Resume</title>
+    <style>
+      .my_button {
+        color: blue;
+        border-color: white;
+        background-color: yellow;
+      }
+      #chocolate {
+        background-color: orange;
+        border-color: white;
+        color: rgb(96, 96, 171);
+      }
+    </style>
+  </head>
+  <body>
+    <p>Plain Cotton T-shirt</p>
+    <p>Price: $7.99</p>
+
+    <button class="my_button" onclick="alert('Added');">Add to Cart</button>
+
+    <button id="chocolate" onclick="">Buy Now</button>
+    <script>
+      const purchase_button = document.getElementById("chocolate");
+      purchase_button.addEventListener("click", function () {
+        console.log("Loading....");
+        alert("Purchased");
+        console.clear();
+      });
+    </script>
+  </body>
+</html>

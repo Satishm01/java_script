@@ -1,0 +1,121 @@
+<!--
+computer randomly select a move
+Compare the move to get the result
+Update the Score
+Display the result and Score the popup
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>rock_paper</title>
+  </head>
+  <body>
+    <h3>Rock_Paper_Scissor</h3>
+    <br />
+
+    <button
+      onclick="comupter_selection();
+    plyer_move(1);
+    disp();
+  
+    "
+    >
+      Rock
+    </button>
+    <button
+      onclick="comupter_selection();plyer_move(2);disp();
+    "
+    >
+      paper
+    </button>
+    <button
+      onclick="
+      comupter_selection();
+   plyer_move(3);disp();
+    "
+    >
+      Scissor
+    </button>
+    <br />
+    <br />
+    <br />
+    <button
+      onclick="
+        score.win = 0,
+        score.lose = 0,
+        score.tie = 0;
+        localStorage.removeItem('score');
+        console.log(
+            `Wins:${score.win},  Losses:${score.lose}, Ties:${score.tie}`
+          );
+    "
+    >
+      Reset Score
+    </button>
+
+    <script>
+      let result = "",
+        playermove = "",
+        computermove = "";
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        tie: 0,
+        lose: 0,
+        win: 0,
+      };
+      /* if (score === null) {
+        score = {
+          tie: 0,
+          lose: 0,
+          win: 0,
+        };
+      }*/
+
+      function comupter_selection() {
+        num1 = Math.floor(Math.random() * 3) + 1;
+      }
+      function plyer_move(move) {
+        if (num1 == 2 && move == 3) {
+          result = "win";
+          (playermove = "Scissor"), (computermove = "paper");
+        } else if (num1 == 3 && move == 3) {
+          result = "tie";
+          (playermove = "Scissor"), (computermove = "Scissors");
+        } else if (num1 == 1 && move == 3) {
+          result = "lose";
+          (playermove = "Scissor"), (computermove = "Rock");
+        } else if (num1 == 2 && move == 2) {
+          result = "tie";
+          (playermove = "Paper"), (computermove = "Paper");
+        } else if (num1 == 3 && move == 2) {
+          result = "lose";
+          (playermove = "Paper"), (computermove = "Scissors");
+        } else if (num1 == 1 && move == 2) {
+          result = "win";
+          (playermove = "Paper"), (computermove = "Rock");
+        } else if (num1 == 2 && move == 1) {
+          result = "lose";
+          (playermove = "Rock"), (computermove = "Paper");
+        } else if (num1 == 3 && move == 1) {
+          result = "win";
+          (playermove = "Rock"), (computermove = "Scissors");
+        } else if (num1 == 1 && move == 1) {
+          result = "tie";
+          (playermove = "Rock"), (computermove = "Rock");
+        }
+      }
+      function disp() {
+        if (result === "win") score.win++;
+        else if (result === "lose") score.lose++;
+        else if (result === "tie") score.tie++;
+        alert(
+          `you picked ${playermove}. Computer picked ${computermove}.Hence ${result} \n Wins:${score.win},  Losses:${score.lose}, Ties:${score.tie}`
+        );
+        console.log(
+          `Wins:${score.win},  Losses:${score.lose}, Ties:${score.tie}`
+        );
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+
+    <button id="display">Show Quantity</button>
+    <button id="Addtocart">Add to Cart</button>
+    <button id="+2">+2</button>
+    <button id="+3">+3</button>
+    <button id="Reset">Reset Cart</button>
+    <button
+      onclick="
+      if(cartQuantity>0)
+      {
+          cartQuantity--;
+          console.log(`Cart Quantity: ${cartQuantity}`);
+
+      }
+      else
+        console.log('Cart is empty');
+    "
+    >
+      Delete
+    </button>
+
+    <script>
+      let cartQuantity = 0;
+      const showbutton = document.getElementById("display");
+      showbutton.addEventListener("click", function () {
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      });
+
+      const Addtocartbutton = document.getElementById("Addtocart");
+      Addtocartbutton.addEventListener("click", function () {
+        cartQuantity += 1;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      });
+
+      const addwo = document.getElementById("+2");
+      addwo.addEventListener("click", function () {
+        cartQuantity += 2;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      });
+
+      const Add3 = document.getElementById("+3");
+      Add3.addEventListener("click", function () {
+        cartQuantity += 3;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      });
+
+      const Resetbutton = document.getElementById("Reset");
+      Resetbutton.addEventListener("click", function () {
+        cartQuantity = 0;
+        console.log(`Cart Quantity reset to: ${cartQuantity}`);
+      });
+    </script>
+  </body>
+</html>
