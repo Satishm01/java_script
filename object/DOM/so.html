@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function minmax(arr) {
+        let score = {
+          min1: null,
+          max1: null,
+        };
+        if (arr.length === 1) {
+          score.min1 = arr[0];
+          score.max1 = arr[0];
+          return score;
+        }
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < score.min1) {
+            score.min1 = arr[i];
+          } else if (arr[i] > score.max1) {
+            score.max1 = arr[i];
+          }
+        }
+
+        return console.log(score);
+      }
+      let a = [1, -3, 5];
+      minmax(a);
+      minmax([]);
+      console.log(minmax([3]));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="Display('heads');">heads</button>
+    <button onclick="Display('tails');">tails</button>
+    <p class="js-choose"></p>
+
+    <input
+      placeholder="Enter Text"
+      class="text"
+      onkeydown="if(event.key==='Enter') namevalue();"
+    />
+    <button onclick="namevalue();">Submit</button>
+    <p class="js-name"></p>
+    <script>
+      function Display(element) {
+        document.querySelector(".js-choose").innerHTML = `You chose:${element}`;
+      }
+
+      function namevalue() {
+        const nametext = document.querySelector(".text");
+        document.querySelector(
+          ".js-name"
+        ).innerHTML = `Your name is: ${nametext.value}`;
+      }
+    </script>
+  </body>
+</html>
